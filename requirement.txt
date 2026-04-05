@@ -1,0 +1,6 @@
+langchain
+langgraph
+playwright
+langchain_groq
+langchain_classic
+dotenv
