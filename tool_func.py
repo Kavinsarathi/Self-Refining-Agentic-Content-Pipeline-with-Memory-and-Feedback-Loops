@@ -36,7 +36,7 @@ async def checks_session_status(State):
             stats=file.read()
     else:
          with open(session_status_path,'w+') as file:
-            stats=file.write(0)       
+            stats=file.write('0')       
             
     if stats:
         return "agent_calling"
