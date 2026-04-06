@@ -3,4 +3,4 @@ langgraph
 playwright
 langchain_groq
 langchain_classic
-python-dotenv
+dotenv
