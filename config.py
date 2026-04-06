@@ -1,0 +1,10 @@
+session_status_path = 'session_status_path.txt'
+base_url = 'https://www.linkedin.com/login/'
+target_url = 'https://www.linkedin.com/feed/'
+session_state_store_path = 'session_state_store_path.json'
+state_history_path = 'state_history_path.json'
+
+CTA_type='Fresher and Experience Question about their agent building'
+Length='180-220 words'
+tone='fresher with a specific example from your work'
+Audience='ML Engineers'

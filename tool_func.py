@@ -18,7 +18,7 @@ class State(TypedDict):
     
 
 async def load_chat_history(file_path):
-    if os.path.exists:
+    if os.path.exists(file_path):
         with open(file_path,'r') as file:
             history = json.load(file)
             return history
