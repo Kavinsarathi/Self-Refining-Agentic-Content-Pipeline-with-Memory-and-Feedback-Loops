@@ -18,14 +18,29 @@ jobs:
         with:
           python-version: '3.11'
 
+      # 🔍 Debug: check repo files
+      - name: Debug repo structure
+        run: |
+          echo "Listing files..."
+          ls -la
+
+      # 📦 Install dependencies (no conditions)
       - name: Install dependencies
         run: |
-          if [ -f requirements.txt ]; then
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
-          fi
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
+      # 🔍 Verify dotenv is installed
+      - name: Verify dotenv
+        run: pip show python-dotenv
+
+      # ⚠️ Required for Playwright
+      - name: Install Playwright browsers
+        run: |
+          playwright install --with-deps
+
+      # ▶️ Run your script
       - name: Run script
         env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }} 
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python app.py
