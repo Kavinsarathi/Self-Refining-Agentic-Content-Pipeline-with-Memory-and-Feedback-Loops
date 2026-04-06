@@ -8,4 +8,7 @@ CTA_type='Fresher and Experience Question about their agent building'
 Length='180-220 words'
 tone='fresher with a specific example from your work'
 Audience='ML Engineers'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4a7edf29e0eba2cd3d914489bfe8c849d8a0cc81
