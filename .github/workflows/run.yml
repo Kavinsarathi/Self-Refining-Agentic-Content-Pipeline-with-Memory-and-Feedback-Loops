@@ -1,0 +1,47 @@
+name: Run Python Script Daily
+
+on:
+  schedule:
+    - cron: '0 14 * * *'   # 8 PM IST = 14:00 UTC
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 🔍 Debug: check repo files
+      - name: Debug repo structure
+        run: |
+          echo "Listing files..."
+          ls -la
+
+      # 📦 Install dependencies (no conditions)
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python -c "import dotenv; print('dotenv installed successfully')"
+
+      # 🔍 Verify dotenv is installed
+      - name: Verify dotenv
+        run: pip show python-dotenv
+
+      # ⚠️ Required for Playwright
+      - name: Install Playwright browsers
+        run: |
+          playwright install --with-deps
+
+      # ▶️ Run your script
+      - name: Run script
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python app.py
